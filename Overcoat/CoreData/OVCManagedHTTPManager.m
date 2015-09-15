@@ -52,6 +52,7 @@ void OVCManagedHTTPManagerSetupBackgroundContext(id<OVCManagedHTTPManager_Intern
                                      initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     httpManager.backgroundContext.persistentStoreCoordinator =
         httpManager.managedObjectContext.persistentStoreCoordinator;
+    httpManager.backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy;
 
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     NSManagedObjectContext *context = httpManager.managedObjectContext;
